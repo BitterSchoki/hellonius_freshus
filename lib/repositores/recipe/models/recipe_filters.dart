@@ -3,7 +3,7 @@ import 'package:hellonius_freshus/repositores/recipe/models/enums/food_group.dar
 import 'package:json_annotation/json_annotation.dart';
 
 import 'enums/diet_goal.dart';
-import 'enums/special_diet.dart';
+import 'enums/dietary.dart';
 
 part 'recipe_filters.g.dart';
 

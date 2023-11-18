@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 
-import '../../../../repositores/recipe/models/enums/food_group.dart';
+import '../../../../repositores/recipe/models/enums/intolerances.dart';
 
 class FoodGroupSelectionCubit extends Cubit<List<FoodGroup>> {
   FoodGroupSelectionCubit() : super([]);

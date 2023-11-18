@@ -40,25 +40,25 @@ flutter:
     - lib/assets/images/lime.png
     - lib/assets/images/milk.png
     - lib/assets/images/olive.png
-    - lib/assets/images/paleo_diet.png
+    - lib/assets/images/dietary/paleo_diet.png
     - lib/assets/images/peanuts.png
-    - lib/assets/images/pescetariar.png
+    - lib/assets/images/dietary/pescetarian.png
     - lib/assets/images/roasted_edamame.png
     - lib/assets/images/shellfish.png
     - lib/assets/images/soy.png
     - lib/assets/images/treenuts.png
     - lib/assets/images/user.png
-    - lib/assets/images/vegan.png
-    - lib/assets/images/4.png
-    - lib/assets/images/5.png
+    - lib/assets/images/dietary/vegan.png
+    - lib/assets/images/preferences/4.png
+    - lib/assets/images/preferences/5.png
     - lib/assets/images/allergies/18.png
     - lib/assets/images/allergies/19.png
     - lib/assets/images/allergies/20.png
     - lib/assets/images/allergies/21.png
-    - lib/assets/images/27.png
-    - lib/assets/images/28.png
-    - lib/assets/images/29.png
-    - lib/assets/images/30.png
+    - lib/assets/images/preferences/27.png
+    - lib/assets/images/preferences/28.png
+    - lib/assets/images/preferences/29.png
+    - lib/assets/images/preferences/30.png
     - lib/assets/images/allergies/31.png
     - lib/assets/images/allergies/32.png
     
