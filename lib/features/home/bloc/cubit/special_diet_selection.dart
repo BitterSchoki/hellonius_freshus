@@ -1,16 +1,22 @@
 import 'package:bloc/bloc.dart';
-import 'package:hellonius_freshus/repositores/recipe/models/enums/special_diet.dart';
 
-class SpecialDietSelectionCubit extends Cubit<List<SpecialDiet>> {
-  SpecialDietSelectionCubit() : super([]);
+import '../../../../repositores/recipe/models/enums/dietary.dart';
+
+class DietarySelectionCubit extends Cubit<List<Dietary>> {
+  DietarySelectionCubit() : super([]);
 
   void resetSelection() {
     emit([]);
   }
 
-  void addSpecialDiet(SpecialDiet specialDiet) {
+  void addSpecialDiet(Dietary dietary) {
     final currentList = List.of(state);
-    currentList.add(specialDiet);
+
+    if (!currentList.contains(dietary)) {
+      currentList.add(dietary);
+    } else {
+      currentList.remove(dietary);
+    }
 
     emit(currentList);
   }

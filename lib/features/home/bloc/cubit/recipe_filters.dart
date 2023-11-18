@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:hellonius_freshus/repositores/recipe/models/enums/diet_goal.dart';
-import 'package:hellonius_freshus/repositores/recipe/models/enums/food_group.dart';
-import 'package:hellonius_freshus/repositores/recipe/models/enums/special_diet.dart';
 
+import '../../../../repositores/recipe/models/enums/dietary.dart';
+import '../../../../repositores/recipe/models/enums/intolerances.dart';
 import '../../../../repositores/recipe/models/recipe_filters.dart';
 
 class RecipeFiltersCubit extends Cubit<RecipeFilters> {
@@ -14,7 +14,7 @@ class RecipeFiltersCubit extends Cubit<RecipeFilters> {
             deadly: [],
             dietGoals: [],
             foodGroups: [],
-            specialDiet: [],
+            dietary: [],
           ),
         );
 
@@ -22,8 +22,8 @@ class RecipeFiltersCubit extends Cubit<RecipeFilters> {
     required List<int> avoid,
     required List<int> deadly,
     required List<DietGoal> dietGoals,
-    required List<FoodGroup> foodGroups,
-    required List<SpecialDiet> specialDiets,
+    required List<Intolerances> foodGroups,
+    required List<Dietary> specialDiets,
   }) {
     final newState = RecipeFilters(
       keyword: "",
@@ -31,7 +31,7 @@ class RecipeFiltersCubit extends Cubit<RecipeFilters> {
       deadly: deadly,
       dietGoals: dietGoals,
       foodGroups: foodGroups,
-      specialDiet: specialDiets,
+      dietary: specialDiets,
     );
     emit(newState);
   }

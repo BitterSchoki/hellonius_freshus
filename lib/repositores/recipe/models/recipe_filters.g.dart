@@ -10,13 +10,13 @@ RecipeFilters _$RecipeFiltersFromJson(Map<String, dynamic> json) =>
     RecipeFilters(
       keyword: json['keyword'] as String,
       foodGroups: (json['food_groups'] as List<dynamic>)
-          .map((e) => $enumDecode(_$FoodGroupEnumMap, e))
+          .map((e) => $enumDecode(_$IntolerancesEnumMap, e))
           .toList(),
       dietGoals: (json['diet_goals'] as List<dynamic>)
           .map((e) => $enumDecode(_$DietGoalEnumMap, e))
           .toList(),
-      specialDiet: (json['special_diets'] as List<dynamic>)
-          .map((e) => $enumDecode(_$SpecialDietEnumMap, e))
+      dietary: (json['special_diets'] as List<dynamic>)
+          .map((e) => $enumDecode(_$DietaryEnumMap, e))
           .toList(),
       deadly: (json['deadly'] as List<dynamic>).map((e) => e as int).toList(),
       avoid: (json['avoid'] as List<dynamic>).map((e) => e as int).toList(),
@@ -26,20 +26,20 @@ Map<String, dynamic> _$RecipeFiltersToJson(RecipeFilters instance) =>
     <String, dynamic>{
       'keyword': instance.keyword,
       'food_groups':
-          instance.foodGroups.map((e) => _$FoodGroupEnumMap[e]!).toList(),
+          instance.foodGroups.map((e) => _$IntolerancesEnumMap[e]!).toList(),
       'diet_goals':
           instance.dietGoals.map((e) => _$DietGoalEnumMap[e]!).toList(),
       'special_diets':
-          instance.specialDiet.map((e) => _$SpecialDietEnumMap[e]!).toList(),
+          instance.dietary.map((e) => _$DietaryEnumMap[e]!).toList(),
       'deadly': instance.deadly,
       'avoid': instance.avoid,
     };
 
-const _$FoodGroupEnumMap = {
-  FoodGroup.lactose: 'lactose',
-  FoodGroup.gluten: 'gluten',
-  FoodGroup.histamines: 'histamines',
-  FoodGroup.seafood: 'seafood',
+const _$IntolerancesEnumMap = {
+  Intolerances.lactose: 'lactose',
+  Intolerances.gluten: 'gluten',
+  Intolerances.histamines: 'histamines',
+  Intolerances.seafood: 'seafood',
 };
 
 const _$DietGoalEnumMap = {
@@ -49,9 +49,10 @@ const _$DietGoalEnumMap = {
   DietGoal.cleanEating: 'CleanEating',
 };
 
-const _$SpecialDietEnumMap = {
-  SpecialDiet.vegan: 'vegan',
-  SpecialDiet.vegetarian: 'vegetarian',
-  SpecialDiet.pescetarian: 'pescetarian',
-  SpecialDiet.keto: 'keto',
+const _$DietaryEnumMap = {
+  Dietary.vegetarian: 'vegetarian',
+  Dietary.vegan: 'vegan',
+  Dietary.pescetarian: 'pescetarian',
+  Dietary.paleoDiet: 'paleoDiet',
+  Dietary.forKids: 'forKids',
 };

@@ -2,17 +2,20 @@ import 'package:bloc/bloc.dart';
 
 import '../../../../repositores/recipe/models/enums/intolerances.dart';
 
-class FoodGroupSelectionCubit extends Cubit<List<FoodGroup>> {
-  FoodGroupSelectionCubit() : super([]);
+class IntolerancesSelectionCubit extends Cubit<List<Intolerances>> {
+  IntolerancesSelectionCubit() : super([]);
 
   void resetSelection() {
     emit([]);
   }
 
-  void addFoodGroup(FoodGroup foodGroup) {
+  void addFoodGroup(Intolerances intolerances) {
     final currentList = List.of(state);
-    currentList.add(foodGroup);
-
+    if (!currentList.contains(intolerances)) {
+      currentList.add(intolerances);
+    } else {
+      currentList.remove(intolerances);
+    }
     emit(currentList);
   }
 }

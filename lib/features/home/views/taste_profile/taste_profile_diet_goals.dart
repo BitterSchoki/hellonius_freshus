@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hellonius_freshus/features/home/bloc/cubit/food_group_selection.dart';
+import 'package:hellonius_freshus/features/home/bloc/cubit/diet_goal_selection.dart';
+import 'package:hellonius_freshus/repositores/recipe/models/enums/diet_goal.dart';
 
 import '../../../../components/joy_list_item.dart';
-import '../../../../repositores/recipe/models/enums/intolerances.dart';
 
-class TasteProfileFoodGroupView extends StatelessWidget {
-  const TasteProfileFoodGroupView({super.key});
+class TasteProfileDietGoalsView extends StatelessWidget {
+  const TasteProfileDietGoalsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +16,18 @@ class TasteProfileFoodGroupView extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: BlocBuilder<IntolerancesSelectionCubit, List<Intolerances>>(
+              child: BlocBuilder<DietGoalSelectionCubit, List<DietGoal>>(
                 builder: (context, state) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       JoyListItem(
-                        title: "No food intolerances",
+                        title: "I just eat what i want.",
                         isSelected: state.isEmpty,
                         hasBorder: true,
                         onTap: () {
-                          BlocProvider.of<IntolerancesSelectionCubit>(context).resetSelection();
+                          BlocProvider.of<DietGoalSelectionCubit>(context).resetSelection();
                         },
                       ),
                       Padding(
@@ -36,11 +36,11 @@ class TasteProfileFoodGroupView extends StatelessWidget {
                           bottom: 16.0,
                         ),
                         child: Text(
-                          "I have intolerances against...",
+                          "Cap the carb?",
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ),
-                      ...Intolerances.values
+                      ...DietGoal.values
                           .map(
                             (e) => Padding(
                               padding: const EdgeInsets.only(
@@ -52,7 +52,7 @@ class TasteProfileFoodGroupView extends StatelessWidget {
                                 isSelected: state.contains(e),
                                 hasBorder: true,
                                 onTap: () {
-                                  BlocProvider.of<IntolerancesSelectionCubit>(context).addFoodGroup(e);
+                                  BlocProvider.of<DietGoalSelectionCubit>(context).addDietGoal(e);
                                 },
                               ),
                             ),

@@ -58,6 +58,7 @@ class JoyListItem extends StatelessWidget {
                   child: Image.asset(
                     imageAsset!,
                     width: 48,
+                    height: 48,
                     fit: BoxFit.contain,
                   ),
                 ),

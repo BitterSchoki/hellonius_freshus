@@ -7,8 +7,8 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FoodGroupSelectionCubit>(
-      create: (context) => FoodGroupSelectionCubit(),
+    return BlocProvider<IntolerancesSelectionCubit>(
+      create: (context) => IntolerancesSelectionCubit(),
       child: Center(
         child: Column(
           children: [],

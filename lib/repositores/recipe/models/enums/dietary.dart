@@ -25,7 +25,7 @@ extension DietaryExtension on Dietary {
   }
 
   String get imagePath {
-    return 'lib/assets/images/dietary/${this.name.toLowerCase().replaceAll(' ', '_')}.png';
+    return 'lib/assets/images/${name.toLowerCase().replaceAll(' ', '_')}.png';
   }
 
   String get descr {

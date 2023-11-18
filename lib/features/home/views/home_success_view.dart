@@ -64,24 +64,24 @@ class HomeSuccessView extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 8),
-                  GestureDetector(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: BrandColors.brand600,
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0,
-                          vertical: 4.0,
-                        ),
-                        child: Text(
-                          "Manage your profiles",
-                          style: Theme.of(context).textTheme.labelMedium,
-                        ),
-                      ),
-                    ),
-                  ),
+                  // GestureDetector(
+                  //   child: Container(
+                  //     decoration: BoxDecoration(
+                  //       color: BrandColors.brand600,
+                  //       borderRadius: BorderRadius.circular(14),
+                  //     ),
+                  //     child: Padding(
+                  //       padding: const EdgeInsets.symmetric(
+                  //         horizontal: 10.0,
+                  //         vertical: 4.0,
+                  //       ),
+                  //       child: Text(
+                  //         "Manage your profiles",
+                  //         style: Theme.of(context).textTheme.labelMedium,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   const SizedBox(height: 24),
                   Text(
                     "Deliveries",
@@ -89,7 +89,7 @@ class HomeSuccessView extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Container(
-                    height: 500,
+                    height: 200,
                     decoration: BoxDecoration(
                       color: BrandColors.brand100,
                       borderRadius: BorderRadius.circular(

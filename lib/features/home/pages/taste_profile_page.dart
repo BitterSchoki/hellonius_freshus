@@ -11,6 +11,7 @@ import 'package:hellonius_freshus/features/home/views/taste_profile/taste_profil
 import 'package:hellonius_freshus/themes/colors.dart';
 
 import '../bloc/cubit/food_group_selection.dart';
+import '../views/taste_profile/taste_profile_diet_goals.dart';
 import '../views/taste_profile/taste_profile_food_group_view.dart';
 import '../views/taste_profile/taste_profile_special_diet_view.dart';
 
@@ -25,14 +26,14 @@ class TasteProfilePage extends StatelessWidget {
       color: Colors.white,
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<FoodGroupSelectionCubit>(
-            create: (context) => FoodGroupSelectionCubit(),
+          BlocProvider<IntolerancesSelectionCubit>(
+            create: (context) => IntolerancesSelectionCubit(),
           ),
           BlocProvider<DietGoalSelectionCubit>(
             create: (context) => DietGoalSelectionCubit(),
           ),
-          BlocProvider<SpecialDietSelectionCubit>(
-            create: (context) => SpecialDietSelectionCubit(),
+          BlocProvider<DietarySelectionCubit>(
+            create: (context) => DietarySelectionCubit(),
           ),
           BlocProvider<ActiveSelectionCubit>(
             create: (context) => ActiveSelectionCubit(),
@@ -43,6 +44,9 @@ class TasteProfilePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const _TasteProfileHeader(),
+              const SizedBox(
+                height: 16,
+              ),
               Expanded(
                 child: CarouselSlider(
                   carouselController: controller,
@@ -64,9 +68,9 @@ class TasteProfilePage extends StatelessWidget {
                           } else if (i == 3) {
                             return const TasteProfileSpecialDietView();
                           } else if (i == 4) {
-                            return const TasteProfileFoodGroupView();
+                            return const TasteProfileSpecialDietView();
                           } else if (i == 5) {
-                            return const TasteProfileFoodGroupView();
+                            return const TasteProfileDietGoalsView();
                           } else if (i == 6) {
                             return const TasteProfileFoodGroupView();
                           }
@@ -106,57 +110,56 @@ class _TasteProfileFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          const Divider(
-            color: Colors.black12,
-            height: 1,
+    return Column(
+      children: [
+        const Divider(
+          color: Colors.black12,
+          height: 1,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            top: 14.0,
+            bottom: 48,
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 16.0,
-              right: 16.0,
-              top: 14.0,
-            ),
-            child: BlocBuilder<ActiveSelectionCubit, int>(
-              builder: (context, state) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    JoySecondaryButton(
-                      title: "Back",
-                      onTap: state != 0 ? goBack : null,
-                    ),
-                    const SizedBox(width: 8),
-                    JoyPrimaryButton(
-                      title: state == 6 ? "Finish" : "Next",
-                      onTap: state == 6
-                          ? () {
-                              final dietGoalSelection = BlocProvider.of<DietGoalSelectionCubit>(context).state;
-                              final foodGroupSelection = BlocProvider.of<FoodGroupSelectionCubit>(context).state;
-                              final specialDietSelection = BlocProvider.of<SpecialDietSelectionCubit>(context).state;
+          child: BlocBuilder<ActiveSelectionCubit, int>(
+            builder: (context, state) {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  JoySecondaryButton(
+                    title: "Back",
+                    onTap: state != 0 ? goBack : null,
+                  ),
+                  const SizedBox(width: 8),
+                  JoyPrimaryButton(
+                    title: state == 6 ? "Finish" : "Next",
+                    onTap: state == 6
+                        ? () {
+                            final dietGoalSelection = BlocProvider.of<DietGoalSelectionCubit>(context).state;
+                            final foodGroupSelection = BlocProvider.of<IntolerancesSelectionCubit>(context).state;
+                            final specialDietSelection = BlocProvider.of<DietarySelectionCubit>(context).state;
 
-                              BlocProvider.of<RecipeFiltersCubit>(context).addFilters(
-                                avoid: [],
-                                deadly: [],
-                                dietGoals: dietGoalSelection,
-                                foodGroups: foodGroupSelection,
-                                specialDiets: specialDietSelection,
-                              );
+                            BlocProvider.of<RecipeFiltersCubit>(context).addFilters(
+                              avoid: [],
+                              deadly: [],
+                              dietGoals: dietGoalSelection,
+                              foodGroups: foodGroupSelection,
+                              specialDiets: specialDietSelection,
+                            );
 
-                              Navigator.of(context).pop();
-                            }
-                          : goNext,
-                    ),
-                  ],
-                );
-              },
-            ),
+                            Navigator.of(context).pop();
+                          }
+                        : goNext,
+                  ),
+                ],
+              );
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -242,7 +245,7 @@ class _TasteProfileHeader extends StatelessWidget {
       case 5:
         return 'Hand in hand to food fulfillment';
       case 6:
-        return 'Select all ingredient you want to be replaced.';
+        return 'Choose ingredient you want to be replaced.';
       default:
         return '';
     }
@@ -253,11 +256,11 @@ class _TasteProfileHeader extends StatelessWidget {
       case 1:
         return 'Creating Taste Profile for...';
       case 2:
-        return 'Any food intolerances';
+        return 'Any food intolerances?';
       case 3:
         return 'Special allergies?';
       case 4:
-        return 'No meat, no problem?';
+        return 'No meat, no problem!';
       case 5:
         return 'Your food goals.';
       case 6:

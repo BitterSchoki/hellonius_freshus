@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hellonius_freshus/features/home/bloc/cubit/food_group_selection.dart';
-import 'package:hellonius_freshus/repositores/recipe/models/enums/special_diet.dart';
 
 import '../../../../components/joy_list_item.dart';
+import '../../../../repositores/recipe/models/enums/dietary.dart';
 import '../../bloc/cubit/special_diet_selection.dart';
 
 class TasteProfileSpecialDietView extends StatelessWidget {
@@ -17,18 +16,18 @@ class TasteProfileSpecialDietView extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: BlocBuilder<SpecialDietSelectionCubit, List<SpecialDiet>>(
+              child: BlocBuilder<DietarySelectionCubit, List<Dietary>>(
                 builder: (context, state) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       JoyListItem(
-                        title: "No food allergies",
+                        title: "I eat everything.",
                         isSelected: state.isEmpty,
                         hasBorder: true,
                         onTap: () {
-                          BlocProvider.of<FoodGroupSelectionCubit>(context).resetSelection();
+                          BlocProvider.of<DietarySelectionCubit>(context).resetSelection();
                         },
                       ),
                       Padding(
@@ -37,11 +36,11 @@ class TasteProfileSpecialDietView extends StatelessWidget {
                           bottom: 16.0,
                         ),
                         child: Text(
-                          "Food groups",
+                          "Further dietary option",
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ),
-                      ...SpecialDiet.values
+                      ...Dietary.values
                           .map(
                             (e) => Padding(
                               padding: const EdgeInsets.only(
@@ -49,10 +48,12 @@ class TasteProfileSpecialDietView extends StatelessWidget {
                               ),
                               child: JoyListItem(
                                 title: e.name,
+                                subtitle: e.descr,
+                                imageAsset: e.imagePath,
                                 isSelected: state.contains(e),
                                 hasBorder: true,
                                 onTap: () {
-                                  BlocProvider.of<SpecialDietSelectionCubit>(context).addSpecialDiet(e);
+                                  BlocProvider.of<DietarySelectionCubit>(context).addSpecialDiet(e);
                                 },
                               ),
                             ),
