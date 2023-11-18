@@ -17,6 +17,7 @@ class RecipeApiClient {
       final url = Uri.parse(RecipeApiEndpoint.recipeFilter);
 
       final recipeFiltersJson = jsonEncode(recipeFilters.toJson());
+      print(recipeFiltersJson);
       final response = await http.post(
         url,
         headers: {

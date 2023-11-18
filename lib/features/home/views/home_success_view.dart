@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hellonius_freshus/features/home/bloc/cubit/recipe_filters.dart';
 import 'package:hellonius_freshus/themes/colors.dart';
 
 import '../../../components/joy_list_item.dart';
@@ -52,7 +54,10 @@ class HomeSuccessView extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const TasteProfilePage(),
+                          builder: (_) => BlocProvider<RecipeFiltersCubit>.value(
+                            value: BlocProvider.of<RecipeFiltersCubit>(context),
+                            child: const TasteProfilePage(),
+                          ),
                           fullscreenDialog: true,
                         ),
                       );

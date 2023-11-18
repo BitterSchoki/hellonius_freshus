@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,10 +5,10 @@ import 'package:hellonius_freshus/components/jox_secondary_button.dart';
 import 'package:hellonius_freshus/components/joy_primary_button.dart';
 import 'package:hellonius_freshus/features/home/bloc/cubit/active_selection.dart';
 import 'package:hellonius_freshus/features/home/bloc/cubit/diet_goal_selection.dart';
+import 'package:hellonius_freshus/features/home/bloc/cubit/recipe_filters.dart';
 import 'package:hellonius_freshus/features/home/bloc/cubit/special_diet_selection.dart';
 import 'package:hellonius_freshus/features/home/views/taste_profile/taste_profile_name.dart';
 import 'package:hellonius_freshus/themes/colors.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../bloc/cubit/food_group_selection.dart';
 import '../views/taste_profile/taste_profile_food_group_view.dart';
@@ -135,14 +133,18 @@ class _TasteProfileFooter extends StatelessWidget {
                     JoyPrimaryButton(
                       title: state == 6 ? "Finish" : "Next",
                       onTap: state == 6
-                          ? () async {
-                              final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-                              final dietSelection = BlocProvider.of<DietGoalSelectionCubit>(context).state;
+                          ? () {
+                              final dietGoalSelection = BlocProvider.of<DietGoalSelectionCubit>(context).state;
                               final foodGroupSelection = BlocProvider.of<FoodGroupSelectionCubit>(context).state;
+                              final specialDietSelection = BlocProvider.of<SpecialDietSelectionCubit>(context).state;
 
-                              await prefs.setString('dietGoals', jsonEncode(dietSelection));
-                              await prefs.setString('foodGroup', jsonEncode(foodGroupSelection));
+                              BlocProvider.of<RecipeFiltersCubit>(context).addFilters(
+                                avoid: [],
+                                deadly: [],
+                                dietGoals: dietGoalSelection,
+                                foodGroups: foodGroupSelection,
+                                specialDiets: specialDietSelection,
+                              );
 
                               Navigator.of(context).pop();
                             }

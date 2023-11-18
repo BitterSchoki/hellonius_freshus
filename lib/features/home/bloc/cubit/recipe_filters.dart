@@ -8,7 +8,7 @@ import '../../../../repositores/recipe/models/recipe_filters.dart';
 class RecipeFiltersCubit extends Cubit<RecipeFilters> {
   RecipeFiltersCubit()
       : super(
-          RecipeFilters(
+          const RecipeFilters(
             keyword: "",
             avoid: [],
             deadly: [],
@@ -25,15 +25,14 @@ class RecipeFiltersCubit extends Cubit<RecipeFilters> {
     required List<FoodGroup> foodGroups,
     required List<SpecialDiet> specialDiets,
   }) {
-    emit(
-      RecipeFilters(
-        keyword: "",
-        avoid: [],
-        deadly: [],
-        dietGoals: [],
-        foodGroups: [],
-        specialDiet: [],
-      ),
+    final newState = RecipeFilters(
+      keyword: "",
+      avoid: avoid,
+      deadly: deadly,
+      dietGoals: dietGoals,
+      foodGroups: foodGroups,
+      specialDiet: specialDiets,
     );
+    emit(newState);
   }
 }
