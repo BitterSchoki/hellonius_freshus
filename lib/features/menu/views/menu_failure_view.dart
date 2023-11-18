@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hellonius_freshus/components/joy_primary_button.dart';
 import 'package:hellonius_freshus/features/menu/bloc/recipe_bloc/recipe_event.dart';
+import 'package:hellonius_freshus/repositores/recipe/models/recipe_filters.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../bloc/recipe_bloc/recipe_bloc.dart';
 
@@ -42,9 +44,25 @@ class MenuFailureView extends StatelessWidget {
             ),
             child: JoyPrimaryButton(
               title: "Nochmal versuchen",
-              onTap: () {
+              onTap: () async {
+                final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+                final String? dietGoals = prefs.getString('dietGoals');
+                final String? foodGroups = prefs.getString('foodGroup');
+                print(dietGoals);
+                print(foodGroups);
+
                 BlocProvider.of<RecipeBloc>(context).add(
-                  RecipeFetchStarted(),
+                  RecipeFetchStarted(
+                    recipeFilters: const RecipeFilters(
+                      keyword: "",
+                      avoid: [],
+                      deadly: [],
+                      dietGoals: [],
+                      foodGroups: [],
+                      specialDiet: [],
+                    ),
+                  ),
                 );
               },
             ),

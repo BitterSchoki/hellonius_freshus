@@ -16,10 +16,10 @@ class RecipeBloc extends Bloc<RecipeEvent, RecipeState> {
     if (event is RecipeFetchStarted) {
       yield RecipeLoadInProgress();
       try {
-        final recipe = await repository.retreiveRecipe();
-        yield RecipeLoadSuccess(
-          recipes: [recipe, recipe],
+        final recipes = await repository.retreiveRecipe(
+          recipeFilters: event.recipeFilters,
         );
+        yield RecipeLoadSuccess(recipes: recipes);
       } catch (error) {
         yield RecipeLoadFailure();
       }

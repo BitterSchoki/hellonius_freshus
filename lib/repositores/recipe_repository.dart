@@ -1,8 +1,11 @@
 import 'recipe/api/recipe_api_client.dart';
 import 'recipe/models/recipe.dart';
+import 'recipe/models/recipe_filters.dart';
 
 abstract class RecipeRepository {
-  Future<Recipe> retreiveRecipe();
+  Future<List<Recipe>> retreiveRecipe({
+    required RecipeFilters recipeFilters,
+  });
 }
 
 class ConnectedRecipeRepository extends RecipeRepository {
@@ -13,7 +16,9 @@ class ConnectedRecipeRepository extends RecipeRepository {
   final RecipeApiClient recipeApiClient;
 
   @override
-  Future<Recipe> retreiveRecipe() {
-    return recipeApiClient.retreiveRecipe();
+  Future<List<Recipe>> retreiveRecipe({
+    required RecipeFilters recipeFilters,
+  }) async {
+    return recipeApiClient.retreiveRecipe(recipeFilters: recipeFilters);
   }
 }

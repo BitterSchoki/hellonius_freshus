@@ -18,7 +18,7 @@ class HomeSuccessView extends StatelessWidget {
             Container(
               color: BrandColors.brand400,
               child: Padding(
-                padding: const EdgeInsets.only(top: 54),
+                padding: const EdgeInsets.only(top: 60),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
