@@ -48,7 +48,20 @@ flutter:
     - lib/assets/images/treenuts.png
     - lib/assets/images/user.png
     - lib/assets/images/vegan.png
-    - lib/assets/images/vegetarian.png
+    - lib/assets/images/4.png
+    - lib/assets/images/5.png
+    - lib/assets/images/allergies/18.png
+    - lib/assets/images/allergies/19.png
+    - lib/assets/images/allergies/20.png
+    - lib/assets/images/allergies/21.png
+    - lib/assets/images/27.png
+    - lib/assets/images/28.png
+    - lib/assets/images/29.png
+    - lib/assets/images/30.png
+    - lib/assets/images/allergies/31.png
+    - lib/assets/images/allergies/32.png
+    
+    
 
   fonts:
     - family: Agrandir
