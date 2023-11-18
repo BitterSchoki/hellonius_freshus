@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hellonius_freshus/features/home/bloc/cubit/food_group_selection.dart';
-import 'package:hellonius_freshus/repositores/recipe/models/enums/food_group.dart';
+import 'package:hellonius_freshus/repositores/recipe/models/enums/special_diet.dart';
 
 import '../../../../components/joy_list_item.dart';
+import '../../bloc/cubit/special_diet_selection.dart';
 
-class TasteProfileFoodGroupView extends StatelessWidget {
-  const TasteProfileFoodGroupView({super.key});
+class TasteProfileSpecialDietView extends StatelessWidget {
+  const TasteProfileSpecialDietView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class TasteProfileFoodGroupView extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: BlocBuilder<FoodGroupSelectionCubit, List<FoodGroup>>(
+              child: BlocBuilder<SpecialDietSelectionCubit, List<SpecialDiet>>(
                 builder: (context, state) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +41,7 @@ class TasteProfileFoodGroupView extends StatelessWidget {
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ),
-                      ...FoodGroup.values
+                      ...SpecialDiet.values
                           .map(
                             (e) => Padding(
                               padding: const EdgeInsets.only(
@@ -51,7 +52,7 @@ class TasteProfileFoodGroupView extends StatelessWidget {
                                 isSelected: state.contains(e),
                                 hasBorder: true,
                                 onTap: () {
-                                  BlocProvider.of<FoodGroupSelectionCubit>(context).addFoodGroup(e);
+                                  BlocProvider.of<SpecialDietSelectionCubit>(context).addSpecialDiet(e);
                                 },
                               ),
                             ),

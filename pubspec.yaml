@@ -33,21 +33,26 @@ flutter:
   assets:
     - lib/assets/icons/menu.svg
     - lib/assets/icons/error_egg.svg
-    - lib/assets/images/risotto.png
+    - lib/assets/images/coriander.png
+    - lib/assets/images/egg.png
+    - lib/assets/images/hazelnuts.png
+    - lib/assets/images/lime.png
+    - lib/assets/images/milk.png
+    - lib/assets/images/olive.png
+    - lib/assets/images/paleo_diet.png
+    - lib/assets/images/peanuts.png
+    - lib/assets/images/pescetariar.png
+    - lib/assets/images/roasted_edamame.png
+    - lib/assets/images/shellfish.png
+    - lib/assets/images/soy.png
+    - lib/assets/images/treenuts.png
+    - lib/assets/images/user.png
+    - lib/assets/images/vegan.png
+    - lib/assets/images/vegetarian.png
 
   fonts:
     - family: Agrandir
       fonts:
-        - asset: lib/assets/fonts/Agrandir-GrandHeavy.otf
-        - asset: lib/assets/fonts/Agrandir-GrandLight.otf
-        - asset: lib/assets/fonts/Agrandir-Narrow.otf
-          weight: 200
-        - asset: lib/assets/fonts/Agrandir-Regular.otf
-          weight: 500
-        - asset: lib/assets/fonts/Agrandir-TextBold.otf
-          weight: 900
-        - asset: lib/assets/fonts/Agrandir-ThinItalic.otf
-          style: italic
-        - asset: lib/assets/fonts/Agrandir-Tight.otf
-        - asset: lib/assets/fonts/Agrandir-WideBlackItalic.otf
-        - asset: lib/assets/fonts/Agrandir-WideLight.otf
+        - asset: lib/assets/fonts/Agrandir-Regular.ttf
+        - asset: lib/assets/fonts/Agrandir-TextBold.ttf
+          weight: 700

@@ -5,14 +5,12 @@ final customTextTheme = TextTheme(
     color: Colors.black,
     fontSize: 16,
     fontFamily: 'Agrandir',
-    fontWeight: FontWeight.w900,
+    fontWeight: FontWeight.bold,
   ),
-  bodySmall: const TextStyle(
-    color: Colors.black,
+  bodySmall: TextStyle(
+    color: Colors.black.withOpacity(0.6),
     fontSize: 14,
     fontFamily: 'Agrandir',
-    fontWeight: FontWeight.w500,
-    height: 0.09,
   ),
   headlineMedium: const TextStyle(
     color: Colors.white,
@@ -22,11 +20,17 @@ final customTextTheme = TextTheme(
     height: 0.06,
     letterSpacing: -0.40,
   ),
+  titleSmall: TextStyle(
+    color: Colors.black.withOpacity(0.6),
+    fontSize: 16,
+    fontFamily: 'Agrandir',
+    letterSpacing: -0.40,
+  ),
   titleMedium: TextStyle(
     color: Colors.white.withOpacity(0.6),
     fontSize: 16,
     fontFamily: 'Agrandir',
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.bold,
     height: 0.11,
     letterSpacing: -0.40,
   ),
@@ -34,8 +38,7 @@ final customTextTheme = TextTheme(
     color: Colors.white,
     fontSize: 16,
     fontFamily: 'Agrandir',
-    fontWeight: FontWeight.w700,
-    height: 0.09,
+    fontWeight: FontWeight.bold,
   ),
   labelLarge: const TextStyle(
     color: Color(0xFF4FA07B),
