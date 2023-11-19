@@ -241,14 +241,14 @@ class RecipePage extends StatelessWidget {
                                       Padding(
                                         padding: const EdgeInsets.only(right: 16.0),
                                         child: Image.asset(
-                                          "lib/assets/images/${e.oldIngredient?.id}.png",
+                                          "lib/assets/images/${e.ingredient.id}.png",
                                           width: 24,
                                           height: 24,
                                           fit: BoxFit.contain,
                                         ),
                                       ),
                                       Text(
-                                        '${e.oldIngredient?.title} ',
+                                        '${e.ingredient.title} ',
                                         style: const TextStyle(decoration: TextDecoration.lineThrough),
                                       ),
                                       Text(
