@@ -27,9 +27,9 @@ class RecipeApiClient {
         body: recipeFiltersJson,
       );
 
-      final json = jsonDecode(response.body) as List<dynamic>;
+      final whatever = jsonDecode(response.body) as List<dynamic>;
 
-      return json.map((e) => Recipe.fromJson(e)).toList();
+      return whatever.map((e) => Recipe.fromJson(e)).toList();
     } catch (e) {
       throw ExampleHttpFailure();
     }

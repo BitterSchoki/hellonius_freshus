@@ -50,18 +50,53 @@ flutter:
     - lib/assets/images/vegan.png
     - lib/assets/images/vegetarian.png
     - lib/assets/images/for_kids.png
+    - lib/assets/images/1.png
+    - lib/assets/images/2.png
+    - lib/assets/images/3.png
     - lib/assets/images/4.png
     - lib/assets/images/5.png
+    - lib/assets/images/6.png
+    - lib/assets/images/7.png
+    - lib/assets/images/8.png
+    - lib/assets/images/9.png
+    - lib/assets/images/10.png
+    - lib/assets/images/11.png
+    - lib/assets/images/12.png
+    - lib/assets/images/13.png
+    - lib/assets/images/14.png
+    - lib/assets/images/15.png
+    - lib/assets/images/16.png
+    - lib/assets/images/17.png
     - lib/assets/images/18.png
     - lib/assets/images/19.png
     - lib/assets/images/20.png
     - lib/assets/images/21.png
+    - lib/assets/images/22.png
+    - lib/assets/images/23.png
+    - lib/assets/images/24.png
+    - lib/assets/images/25.png
+    - lib/assets/images/26.png
     - lib/assets/images/27.png
     - lib/assets/images/28.png
     - lib/assets/images/29.png
     - lib/assets/images/30.png
     - lib/assets/images/31.png
     - lib/assets/images/32.png
+    - lib/assets/images/33.png
+    - lib/assets/images/34.png
+    - lib/assets/images/35.png
+    - lib/assets/images/36.png
+    - lib/assets/images/37.png
+    - lib/assets/images/38.png
+    - lib/assets/images/39.png
+    - lib/assets/images/40.png
+    - lib/assets/images/41.png
+    - lib/assets/images/42.png
+    - lib/assets/images/43.png
+    - lib/assets/images/44.png
+    - lib/assets/images/45.png
+    - lib/assets/images/46.png
+    - lib/assets/images/47.png
     - lib/assets/images/risotto.png
 
   fonts:

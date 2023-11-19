@@ -1,9 +1,17 @@
+import 'package:json_annotation/json_annotation.dart';
+
 enum FoodPref {
+  @JsonValue(27)
   coriander,
+  @JsonValue(28)
   olives,
+  @JsonValue(5)
   garlic,
+  @JsonValue(4)
   onions,
+  @JsonValue(30)
   coffee,
+  @JsonValue(29)
   blueCheese,
 }
 

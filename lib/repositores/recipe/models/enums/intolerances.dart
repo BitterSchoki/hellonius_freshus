@@ -1,7 +1,13 @@
+import 'package:json_annotation/json_annotation.dart';
+
 enum Intolerances {
+  @JsonValue("Lactose")
   lactose,
+  @JsonValue("Gluten")
   gluten,
+  @JsonValue("Histamines")
   histamines,
+  @JsonValue("Seafood")
   seafood,
 }
 

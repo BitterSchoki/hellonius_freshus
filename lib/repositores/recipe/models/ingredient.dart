@@ -8,10 +8,12 @@ class Ingredient extends Equatable {
   const Ingredient(
     this.title,
     this.description,
+    this.id,
   );
 
   final String title;
   final String description;
+  final int id;
 
   factory Ingredient.fromJson(Map<String, dynamic> json) => _$IngredientFromJson(json);
 
@@ -21,5 +23,6 @@ class Ingredient extends Equatable {
   List<Object?> get props => [
         title,
         description,
+        id,
       ];
 }

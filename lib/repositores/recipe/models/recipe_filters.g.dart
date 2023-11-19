@@ -36,10 +36,10 @@ Map<String, dynamic> _$RecipeFiltersToJson(RecipeFilters instance) =>
     };
 
 const _$IntolerancesEnumMap = {
-  Intolerances.lactose: 'lactose',
-  Intolerances.gluten: 'gluten',
-  Intolerances.histamines: 'histamines',
-  Intolerances.seafood: 'seafood',
+  Intolerances.lactose: 'Lactose',
+  Intolerances.gluten: 'Gluten',
+  Intolerances.histamines: 'Histamines',
+  Intolerances.seafood: 'Seafood',
 };
 
 const _$DietGoalEnumMap = {
@@ -50,9 +50,9 @@ const _$DietGoalEnumMap = {
 };
 
 const _$DietaryEnumMap = {
-  Dietary.vegetarian: 'vegetarian',
-  Dietary.vegan: 'vegan',
-  Dietary.pescetarian: 'pescetarian',
-  Dietary.paleoDiet: 'paleoDiet',
-  Dietary.forKids: 'forKids',
+  Dietary.vegetarian: 'Vegetarian',
+  Dietary.vegan: 'Vegan',
+  Dietary.pescetarian: 'Pescetarian',
+  Dietary.paleoDiet: 'Keto',
+  Dietary.forKids: 'ForKids',
 };

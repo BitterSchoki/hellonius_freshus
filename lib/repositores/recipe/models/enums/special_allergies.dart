@@ -1,9 +1,17 @@
+import 'package:json_annotation/json_annotation.dart';
+
 enum SpecialAllergies {
+  @JsonValue(31)
   peanuts,
+  @JsonValue(32)
   treeNuts,
+  @JsonValue(18)
   milk,
+  @JsonValue(19)
   egg,
+  @JsonValue(20)
   shellfish,
+  @JsonValue(21)
   soy,
 }
 

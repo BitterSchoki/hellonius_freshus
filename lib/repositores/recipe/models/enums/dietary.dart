@@ -1,8 +1,15 @@
+import 'package:json_annotation/json_annotation.dart';
+
 enum Dietary {
+  @JsonValue("Vegetarian")
   vegetarian,
+  @JsonValue("Vegan")
   vegan,
+  @JsonValue("Pescetarian")
   pescetarian,
+  @JsonValue("Keto")
   paleoDiet,
+  @JsonValue("ForKids")
   forKids,
 }
 

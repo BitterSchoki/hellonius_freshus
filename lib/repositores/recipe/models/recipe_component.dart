@@ -12,11 +12,20 @@ class RecipeComponent extends Equatable {
     this.ingredient,
     this.amount,
     this.unit,
+    this.wasReplaced,
+    this.isRemoved,
+    this.oldIngredient,
   );
 
   final Ingredient ingredient;
   final double amount;
   final Unit unit;
+  @JsonKey(name: "was_replaced")
+  final bool wasReplaced;
+  @JsonKey(name: "is_removed")
+  final bool? isRemoved;
+  @JsonKey(name: "old_ingredient")
+  final Ingredient? oldIngredient;
 
   factory RecipeComponent.fromJson(Map<String, dynamic> json) => _$RecipeComponentFromJson(json);
 
@@ -27,5 +36,6 @@ class RecipeComponent extends Equatable {
         ingredient,
         amount,
         unit,
+        wasReplaced,
       ];
 }
