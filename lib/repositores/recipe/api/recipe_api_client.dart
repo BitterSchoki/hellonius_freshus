@@ -29,6 +29,8 @@ class RecipeApiClient {
 
       final whatever = jsonDecode(response.body) as List<dynamic>;
 
+      print(response.body);
+
       return whatever.map((e) => Recipe.fromJson(e)).toList();
     } catch (e) {
       throw ExampleHttpFailure();
