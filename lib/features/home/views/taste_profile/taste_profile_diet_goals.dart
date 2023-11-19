@@ -22,6 +22,9 @@ class TasteProfileDietGoalsView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      const SizedBox(
+                        height: 16,
+                      ),
                       JoyListItem(
                         title: "I just eat what i want.",
                         isSelected: state.isEmpty,

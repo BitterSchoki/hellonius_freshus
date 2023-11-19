@@ -12,10 +12,11 @@ class DietarySelectionCubit extends Cubit<List<Dietary>> {
   void addSpecialDiet(Dietary dietary) {
     final currentList = List.of(state);
 
-    if (!currentList.contains(dietary)) {
+    if (currentList.isEmpty) {
       currentList.add(dietary);
-    } else {
-      currentList.remove(dietary);
+    } else if (currentList.length == 1) {
+      currentList.clear();
+      currentList.add(dietary);
     }
 
     emit(currentList);

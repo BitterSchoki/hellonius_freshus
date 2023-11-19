@@ -44,9 +44,11 @@ class MenuFailureView extends StatelessWidget {
             child: JoyPrimaryButton(
               title: "Nochmal versuchen",
               onTap: () {
-                BlocProvider.of<RecipeBloc>(context).add(RecipeFetchStarted(
-                  recipeFilters: BlocProvider.of<RecipeFiltersCubit>(context).state,
-                ));
+                BlocProvider.of<RecipeBloc>(context).add(
+                  RecipeFetchStarted(
+                    recipeFilters: BlocProvider.of<RecipeFiltersCubit>(context).state,
+                  ),
+                );
               },
             ),
           ),

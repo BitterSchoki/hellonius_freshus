@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../components/joy_primary_button.dart';
 import '../../../components/joy_recipe_item.dart';
 import '../../../repositores/recipe/models/recipe.dart';
 import '../../../themes/colors.dart';
+import '../../home/bloc/cubit/recipe_filters.dart';
+import '../bloc/recipe_bloc/recipe_bloc.dart';
+import '../bloc/recipe_bloc/recipe_event.dart';
 
 class MenuSuccessView extends StatelessWidget {
   const MenuSuccessView({
@@ -43,6 +48,22 @@ class MenuSuccessView extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 85,
+                vertical: 16,
+              ),
+              child: JoyPrimaryButton(
+                title: "Reload recipes",
+                onTap: () {
+                  BlocProvider.of<RecipeBloc>(context).add(
+                    RecipeFetchStarted(
+                      recipeFilters: BlocProvider.of<RecipeFiltersCubit>(context).state,
+                    ),
+                  );
+                },
               ),
             ),
             Padding(

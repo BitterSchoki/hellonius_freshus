@@ -22,6 +22,9 @@ class TasteProfileSpecialDietView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      const SizedBox(
+                        height: 16,
+                      ),
                       JoyListItem(
                         title: "I eat everything.",
                         isSelected: state.isEmpty,

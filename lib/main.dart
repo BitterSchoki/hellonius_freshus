@@ -54,7 +54,7 @@ class MainPage extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.forklift,
+                CupertinoIcons.cube_box,
                 size: 24,
               ),
               label: "My Menu",

@@ -12,6 +12,7 @@ class Recipe extends Equatable {
     this.description,
     this.serves,
     this.recipeComponents,
+    this.imagePath,
   );
 
   final String title;
@@ -19,6 +20,9 @@ class Recipe extends Equatable {
   final int serves;
   @JsonKey(name: "components")
   final List<RecipeComponent> recipeComponents;
+
+  @JsonKey(name: "image_url")
+  final String? imagePath;
 
   factory Recipe.fromJson(Map<String, dynamic> json) => _$RecipeFromJson(json);
 

@@ -5,14 +5,20 @@ import 'package:hellonius_freshus/components/jox_secondary_button.dart';
 import 'package:hellonius_freshus/components/joy_primary_button.dart';
 import 'package:hellonius_freshus/features/home/bloc/cubit/active_selection.dart';
 import 'package:hellonius_freshus/features/home/bloc/cubit/diet_goal_selection.dart';
+import 'package:hellonius_freshus/features/home/bloc/cubit/food_pref_selection.dart';
 import 'package:hellonius_freshus/features/home/bloc/cubit/recipe_filters.dart';
 import 'package:hellonius_freshus/features/home/bloc/cubit/special_diet_selection.dart';
+import 'package:hellonius_freshus/features/home/bloc/cubit/speical_allergies_cubit.dart';
 import 'package:hellonius_freshus/features/home/views/taste_profile/taste_profile_name.dart';
+import 'package:hellonius_freshus/features/home/views/taste_profile/taste_profile_special_allergies.dart.dart';
+import 'package:hellonius_freshus/repositores/recipe/models/enums/food_pref.dart';
+import 'package:hellonius_freshus/repositores/recipe/models/enums/special_allergies.dart';
 import 'package:hellonius_freshus/themes/colors.dart';
 
 import '../bloc/cubit/food_group_selection.dart';
 import '../views/taste_profile/taste_profile_diet_goals.dart';
 import '../views/taste_profile/taste_profile_food_group_view.dart';
+import '../views/taste_profile/taste_profile_food_pref.dart';
 import '../views/taste_profile/taste_profile_special_diet_view.dart';
 
 class TasteProfilePage extends StatelessWidget {
@@ -32,8 +38,14 @@ class TasteProfilePage extends StatelessWidget {
           BlocProvider<DietGoalSelectionCubit>(
             create: (context) => DietGoalSelectionCubit(),
           ),
+          BlocProvider<SpecialAllergiesCubit>(
+            create: (context) => SpecialAllergiesCubit(),
+          ),
           BlocProvider<DietarySelectionCubit>(
             create: (context) => DietarySelectionCubit(),
+          ),
+          BlocProvider<FoodPrefSelectionCubit>(
+            create: (context) => FoodPrefSelectionCubit(),
           ),
           BlocProvider<ActiveSelectionCubit>(
             create: (context) => ActiveSelectionCubit(),
@@ -44,9 +56,6 @@ class TasteProfilePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const _TasteProfileHeader(),
-              const SizedBox(
-                height: 16,
-              ),
               Expanded(
                 child: CarouselSlider(
                   carouselController: controller,
@@ -66,13 +75,13 @@ class TasteProfilePage extends StatelessWidget {
                           } else if (i == 2) {
                             return const TasteProfileFoodGroupView();
                           } else if (i == 3) {
-                            return const TasteProfileSpecialDietView();
+                            return const TasteProfileSpecialAllergiesView();
                           } else if (i == 4) {
                             return const TasteProfileSpecialDietView();
                           } else if (i == 5) {
                             return const TasteProfileDietGoalsView();
                           } else if (i == 6) {
-                            return const TasteProfileFoodGroupView();
+                            return const TasteProfileFoodPrefView();
                           }
                           return Text(
                             'text $i',
@@ -141,10 +150,12 @@ class _TasteProfileFooter extends StatelessWidget {
                             final dietGoalSelection = BlocProvider.of<DietGoalSelectionCubit>(context).state;
                             final foodGroupSelection = BlocProvider.of<IntolerancesSelectionCubit>(context).state;
                             final specialDietSelection = BlocProvider.of<DietarySelectionCubit>(context).state;
+                            final avoid = BlocProvider.of<FoodPrefSelectionCubit>(context).state;
+                            final deadly = BlocProvider.of<SpecialAllergiesCubit>(context).state;
 
                             BlocProvider.of<RecipeFiltersCubit>(context).addFilters(
-                              avoid: [],
-                              deadly: [],
+                              avoid: avoid.map((e) => e.id).toList(),
+                              deadly: deadly.map((e) => e.id).toList(),
                               dietGoals: dietGoalSelection,
                               foodGroups: foodGroupSelection,
                               specialDiets: specialDietSelection,

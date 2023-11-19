@@ -10,10 +10,12 @@ class DietGoalSelectionCubit extends Cubit<List<DietGoal>> {
 
   void addDietGoal(DietGoal dietGoal) {
     final currentList = List.of(state);
-    if (!currentList.contains(dietGoal)) {
+
+    if (currentList.isEmpty) {
       currentList.add(dietGoal);
-    } else {
-      currentList.remove(dietGoal);
+    } else if (currentList.length == 1) {
+      currentList.clear();
+      currentList.add(dietGoal);
     }
 
     emit(currentList);
